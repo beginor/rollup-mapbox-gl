@@ -33,7 +33,14 @@
     "@popperjs/core": "^2.10.1",
     "bootstrap": "^5.1.1",
     "bootstrap-icons": "^1.5.0",
-    "tslib": "^2.3.1"
+    "tslib": "^2.3.1",
+    "mapbox-gl": "^2.4.1",
+    "@loaders.gl/core": "^3.0.12",
+    "@loaders.gl/3d-tiles": "^3.0.12",
+    "@loaders.gl/i3s": "^3.0.12",
+    "@deck.gl/core": "^8.5.10",
+    "@deck.gl/geo-layers": "^8.5.10",
+    "@deck.gl/mapbox": "^8.5.10"
   },
   "devDependencies": {
     "@types/bootstrap": "^5.1.6",
@@ -48,6 +55,8 @@
     "rollup-plugin-scss": "^3.0.0",
     "rollup-plugin-terser": "^7.0.2",
     "sass": "^1.42.1",
-    "typescript": "^4.4.3"
+    "typescript": "^4.4.3",
+    "@types/mapbox-gl": "^2.4.2",
+    "@danmarshall/deckgl-typings": "^4.9.7"
   }
 }

@@ -22,7 +22,8 @@ export default [
     watch: { buildDelay: 0 },
     treeshake: production,
     external: [
-      'tslib', 'bootstrap', '@popperjs/core'
+      'tslib', 'bootstrap', '@popperjs/core',
+      'mapbox-gl'
     ],
     plugins: [
       typescript({ tsconfig: 'tsconfig.json', sourceMap: !production }),

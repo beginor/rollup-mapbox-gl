@@ -13,3 +13,5 @@ cp -v node_modules/bootstrap/dist/js/bootstrap.esm.js dist/libs/bootstrap
 cp -v node_modules/bootstrap/dist/js/bootstrap.esm.min.js dist/libs/bootstrap
 # @popperjs/core
 npx rollup -c rollup/rollup.popperjs.js
+npx rollup -c rollup/rollup.mapbox-gl.js
+cp -v node_modules/mapbox-gl/dist/mapbox-gl.css dist/libs/mapbox-gl
