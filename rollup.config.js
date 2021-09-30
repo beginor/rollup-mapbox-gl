@@ -32,7 +32,7 @@ export default [
         outputStyle: !production ? 'expanded' : 'compressed'
       }),
       alias({}),
-      nodeResolve({ mainFields: ['module', 'main'] }),
+      nodeResolve({ mainFields: ['module', 'main'], browser: true, preferBuiltins: false}),
       commonjs({
         include: []
       }),

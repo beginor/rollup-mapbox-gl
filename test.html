@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MapboxGL Test</title>
+  <link rel="stylesheet" href="dist/main.css">
+  <link rel="stylesheet" href="node_modules/mapbox-gl/dist/mapbox-gl.css">
+</head>
+<body>
+  <div id="app"></div>
+  <script src="node_modules/mapbox-gl/dist/mapbox-gl-unminified.js"></script>
+  <script src="node_modules/@loaders.gl/core/dist/dist.min.js"></script>
+  <script src="node_modules/@loaders.gl/i3s/dist/dist.min.js"></script>
+  <script src="node_modules/@deck.gl/core/dist.min.js"></script>
+  <script src="node_modules/@deck.gl/mapbox/dist.min.js"></script>
+  <script src="node_modules/@deck.gl/layers/dist.min.js"></script>
+  <script src="node_modules/@deck.gl/mesh-layers/dist.min.js"></script>
+  <script src="node_modules/@deck.gl/geo-layers/dist.min.js"></script>
+  <script>
+  const map = new mapboxgl.Map({
+    accessToken: 'pk.eyJ1IjoiYmVnaW5vciIsImEiOiJja2pmMWNkbXg4azcyMzVwZHFraGc1cjYzIn0.xo0073v7zQfAicAPsr0CHQ',
+    container: 'app',
+    style: 'mapbox://styles/beginor/ckjf6mvge0hhk19p75nt647p5',
+    center: [112.46644702928967, 23.049523091515013],
+    zoom: 12.32,
+    pitch: 0,
+    bearing: 0,
+    hash: true
+  });
+  const nav = new mapboxgl.NavigationControl({});
+  map.addControl(nav, 'top-right');
+
+  map.on('load', () => {
+    // addTerrain();
+    addTile3dLayer();
+  });
+
+  function addTerrain() {
+    map.addSource(
+      'mapbox-terrain',
+      {
+        type: 'raster-dem',
+        url: 'mapbox://mapbox.mapbox-terrain-dem-v1',
+        tileSize: 512,
+        maxzoom: 14
+      }
+    );
+    map.setTerrain({ source: 'mapbox-terrain', exaggeration: 1.5 });
+  }
+
+  function addTile3dLayer() {
+    const layer = new deck.MapboxLayer({
+      id: 'tile-3d',
+      type: deck.Tile3DLayer,
+      // data: 'https://tiles.arcgis.com/tiles/z2tnIkrLQ2BRzr6P/arcgis/rest/services/SanFrancisco_Bldgs/SceneServer/layers/0',
+      // data: 'http://localhost:5000/gishub/rest/services/slpks/1604457879019030410/SceneServer/layers/0?$token=b2bbeb4b54294c5980edc0a5bab1d4da',
+      loader: loaders.I3SLoader
+    });
+    map.addLayer(layer);
+  }
+  </script>
+</body>
+</html>
