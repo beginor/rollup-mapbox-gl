@@ -1,3 +1,5 @@
+import mapboxgl from 'mapbox-gl';
+
 const accessToken = 'pk.eyJ1IjoiYmVnaW5vciIsImEiOiJja2pmMWNkbXg4azcyMzVwZHFraGc1cjYzIn0.xo0073v7zQfAicAPsr0CHQ'; // eslint-disable-line max-len
 
 const styles = [
@@ -35,4 +37,17 @@ const styles = [
 
 const defaultStyleUrl = styles[3].url;
 
-export { accessToken, styles, defaultStyleUrl };
+function addTerrain(map: mapboxgl.Map, exaggeration = 1.5): void {
+    map.addSource(
+        'mapbox-terrain',
+        {
+            type: 'raster-dem',
+            url: 'mapbox://mapbox.mapbox-terrain-dem-v1',
+            tileSize: 512,
+            maxzoom: 14
+        }
+    );
+    map.setTerrain({ source: 'mapbox-terrain', exaggeration });
+}
+
+export { accessToken, styles, defaultStyleUrl, addTerrain as addMapboxTerrain };
