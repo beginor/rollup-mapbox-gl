@@ -23,7 +23,7 @@ export default {
   treeshake: production,
   external: [
     'tslib', 'bootstrap', '@popperjs/core',
-    'mapbox-gl'
+    'mapbox-gl', /@turf/
   ],
   plugins: [
     esbuild({ tsconfig: 'tsconfig.json', sourceMap: !production, minify: production, legalComments: 'none' }),

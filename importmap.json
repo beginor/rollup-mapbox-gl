@@ -3,6 +3,7 @@
     "tslib": "./dist/libs/tslib/tslib.js",
     "bootstrap": "./dist/libs/bootstrap/bootstrap.esm.js",
     "@popperjs/core": "./dist/libs/@popperjs/core.js",
-    "mapbox-gl": "./dist/libs/mapbox-gl/mapbox-gl.esm.js"
+    "mapbox-gl": "./dist/libs/mapbox-gl/mapbox-gl.esm.js",
+    "@turf/turf": "./dist/libs/@turf/turf/turf.js"
   }
 }

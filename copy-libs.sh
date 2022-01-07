@@ -14,5 +14,8 @@ cp -v node_modules/bootstrap/dist/js/bootstrap.esm.min.js dist/libs/bootstrap
 # @popperjs/core
 pnpm exec rollup -c rollup/rollup.popperjs.js
 # mapbox-gl
-npx rollup -c rollup/rollup.mapbox-gl.js
+pnpm exec rollup -c rollup/rollup.mapbox-gl.js
 cp -v node_modules/mapbox-gl/dist/mapbox-gl.css dist/libs/mapbox-gl
+# @turf/turf
+pnpm exec rollup -c rollup/rollup.turf.js
+rm -v dist/libs/@turf/turf/turf.tmp.js

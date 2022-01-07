@@ -1,6 +1,4 @@
-import { nodeResolve } from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
-import { terser } from 'rollup-plugin-terser';
 
 export default [
   {
@@ -26,25 +24,5 @@ export default [
     plugins: [
       commonjs({})
     ]
-  },
-  // {
-  //   input: 'node_modules/@turf/turf/dist/es/index.js',
-  //   output: {
-  //     format: 'esm',
-  //     sourcemap: false,
-  //     file: 'dist/libs/@turf/turf.js'
-  //   },
-  //   external: ['object-assign'],
-  //   plugins: [
-  //     nodeResolve(),
-  //     commonjs(),
-  //     // replace({
-  //     //   preventAssignment: false,
-  //     //   values: {
-
-  //     //   }
-  //     // }),
-  //     terser({ format: { comments: false }})
-  //   ]
-  // }
+  }
 ]
