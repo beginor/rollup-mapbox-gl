@@ -1,4 +1,4 @@
-import mapboxgl from 'mapbox-gl';
+import { Map, NavigationControl } from 'mapbox-gl';
 
 import { accessToken, defaultStyleUrl, addMapboxTerrain } from '../mapbox-util';
 
@@ -9,7 +9,7 @@ export class App {
     /** app title */
     public title = 'Hello, MapboxGL !';
 
-    private map!: mapboxgl.Map;
+    private map!: Map;
 
     constructor(private container: HTMLElement) { }
 
@@ -17,7 +17,7 @@ export class App {
      * run the app.
      */
     public run(): void {
-        const map = new mapboxgl.Map({
+        const map = new Map({
             accessToken: accessToken,
             container: this.container,
             style: defaultStyleUrl,
@@ -27,7 +27,7 @@ export class App {
             bearing: 0,
             hash: true
         });
-        const nav = new mapboxgl.NavigationControl({});
+        const nav = new NavigationControl({});
         map.addControl(nav, 'top-right');
         this.map = map;
         map.on('load', () => {

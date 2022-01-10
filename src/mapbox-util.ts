@@ -1,4 +1,4 @@
-import mapboxgl from 'mapbox-gl';
+import { Map } from 'mapbox-gl';
 
 const accessToken = 'pk.eyJ1IjoiYmVnaW5vciIsImEiOiJja2pmMWNkbXg4azcyMzVwZHFraGc1cjYzIn0.xo0073v7zQfAicAPsr0CHQ'; // eslint-disable-line max-len
 
@@ -37,7 +37,7 @@ const styles = [
 
 const defaultStyleUrl = styles[3].url;
 
-function addTerrain(map: mapboxgl.Map, exaggeration = 1.5): void {
+function addTerrain(map: Map, exaggeration = 1.5): void {
     map.addSource(
         'mapbox-terrain',
         {
